@@ -1,19 +1,5 @@
-# blog-v2.0
+## my blog :)
 
-## Project setup
-```
-npm install
-```
+after many versions of this blog, i've finally decided to settle with a vue + notion combo. i write blog posts in notion, and they appear here. yaay! if you want to know how i did that, check out [this article](https://benborgers.com/posts/notion-blog).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+caught a mistake or have a question? open an issue/pull request or email me at hey@khaleelgibran.com
