@@ -52,6 +52,12 @@
       <p class="post-title"><router-link :to="'/posts/' + post.fields.Slug">{{post.fields.Title}}</router-link></p>
       <p class="post-date">Written on {{post.fields.Date.start_date}}</p>
     </div>
+
+    <footer>
+      <p class="copyright">Copyright &#xb7; <b><a href="//khaleelgibran.com">Khaleel Gibran</a></b> &#xb7; {{year}}</p>
+
+      <p class="small-greyed-text">Caught a mistake or have a question? Shoot me an email at <a href="mailto:hey@khaleelgibran.com">hey@khaleelgibran.com</a>!</p>
+    </footer>
   </div>
 </template>
 
@@ -67,7 +73,8 @@ export default {
   data: function() {
     return {
       notionData: [],
-      postsLoaded: false
+      postsLoaded: false,
+      year: new Date().getFullYear()
     }
   },
   computed: {
@@ -113,6 +120,28 @@ export default {
 
 .loader {
   margin-top: 20px !important;
+}
+
+footer {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+  border-top: 2px solid #e5e7eb;
+  vertical-align: center;
+}
+
+.copyright {
+  margin-bottom: 3px;
+}
+
+.small-greyed-text {
+  color: grey;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+footer a {
+  color: black !important;
 }
 
 </style>
