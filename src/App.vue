@@ -60,4 +60,15 @@ a {
   color: #444;
 }
 
+
+iframe {
+  border: 0px solid white;
+  width: 100%;
+  height: 600px;
+}
+
+img {
+  border-radius: 5px;
+}
+
 </style>

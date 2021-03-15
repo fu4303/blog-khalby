@@ -118,6 +118,7 @@ h1 {
     font-size: 1rem;
     unicode-bidi: isolate;
     color: #374151;
+    font-family: "Roboto Mono", "Fira Code", "IBM Plex Mono", monospace;
 }
 
 .post-updated {
