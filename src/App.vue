@@ -5,8 +5,23 @@
       <p class="subtitle">The blog of a fourteen-year-old web developer. </p>
     </header>
     <router-view/>
+    <footer>
+      <p class="copyright">Copyright &#xb7; <b><a href="//khaleelgibran.com">Khaleel Gibran</a></b> &#xb7; {{year}}</p>
+
+      <p class="small-greyed-text">Caught a mistake or have a question? Shoot me an email at <a href="mailto:hey@khaleelgibran.com">hey@khaleelgibran.com</a>!</p>
+    </footer>
   </div>
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      year: new Date().getFullYear()
+    }
+  }
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@300;400;500;600&display=swap');
@@ -69,6 +84,36 @@ iframe {
 
 img {
   border-radius: 5px;
+}
+
+footer {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+  border-top: 2px solid #e5e7eb;
+  vertical-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.copyright {
+  margin-bottom: 3px;
+}
+
+.small-greyed-text {
+  color: grey;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+footer a {
+  color: black !important;
+}
+
+.utterances {
+  margin-top: 40px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
 }
 
 </style>

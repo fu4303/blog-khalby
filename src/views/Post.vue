@@ -25,9 +25,16 @@
         <br /><br />
         <p v-if="showPost === true" class="post-content" v-html="thisPostContent"></p>
 
-        <footer>
-            <p>Caught a mistake or have a question? Shoot me an email at <a href="mailto:hey@khaleelgibran.com">hey@khaleelgibran.com</a></p>
-        </footer>
+        <div id="comments">
+            <!-- <script src="https://utteranc.es/client.js"
+                repo="khalby786/blog"
+                issue-term="url"
+                label="utterances comments"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script> -->
+        </div>
     </div>
 </template>
 
@@ -95,6 +102,17 @@ export default {
         }
     },
     mounted: function() {
+
+        let utterances = document.createElement("script");
+        utterances.setAttribute("src", "https://utteranc.es/client.js");
+        utterances.setAttribute("repo", "khalby786/blog");
+        utterances.setAttribute("issue-term", "url");
+        utterances.setAttribute("label", "utterances comments");
+        utterances.setAttribute("theme", "github-light");
+        utterances.setAttribute("crossorigin", "anonymous");
+
+        document.getElementById("comments").appendChild(utterances);
+
         this.fetchPostContent();
     },
     updated: function() {
