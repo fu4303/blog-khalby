@@ -106,7 +106,7 @@ export default {
         let utterances = document.createElement("script");
         utterances.setAttribute("src", "https://utteranc.es/client.js");
         utterances.setAttribute("repo", "khalby786/blog");
-        utterances.setAttribute("issue-term", "url");
+        utterances.setAttribute("issue-term", "pathname");
         utterances.setAttribute("label", "utterances comments");
         utterances.setAttribute("theme", "github-light");
         utterances.setAttribute("crossorigin", "anonymous");

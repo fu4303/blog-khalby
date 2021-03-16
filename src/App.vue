@@ -4,7 +4,12 @@
       <h1 class="title"><a href="//khaleelgibran.com">Khaleel Gibran</a></h1>
       <p class="subtitle">The blog of a fourteen-year-old web developer. </p>
     </header>
-    <router-view/>
+    <transition
+        name="fade"
+        mode="out-in"
+      >
+      <router-view/>
+    </transition>
     <footer>
       <p class="copyright">Copyright &#xb7; <b><a href="//khaleelgibran.com">Khaleel Gibran</a></b> &#xb7; {{year}}</p>
 
@@ -114,6 +119,19 @@ footer a {
   margin-top: 40px;
   border-top: 1px solid #e5e7eb;
   padding-top: 20px;
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 
 </style>
