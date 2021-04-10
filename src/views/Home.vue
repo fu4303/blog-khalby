@@ -75,7 +75,7 @@ export default {
       fetch("https://potion-api.now.sh/table?id=9676e5ba544740f58d0eb6404220f74c")
         .then(res => res.json())
         .then(data => {
-          this.notionData = data;
+          this.notionData = data.filter(post => post.fields.Published === true);
           this.postsLoaded = true;
         });
     }
