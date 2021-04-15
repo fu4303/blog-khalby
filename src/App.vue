@@ -14,6 +14,10 @@
         Caught a mistake or have a question? Shoot me an email at
         <a href="mailto:hey@khaleelgibran.com">hey@khaleelgibran.com</a>!
       </p>
+
+      <p class="small-greyed-text">
+        <a href="https://512kb.club/">512kb club</a>
+      </p>
     </footer>
   </div>
 </template>
@@ -89,6 +93,7 @@ footer {
   color: grey;
   font-size: 12px;
   margin-top: 0px;
+  margin-bottom: 3px;
 }
 
 footer a {
