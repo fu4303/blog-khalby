@@ -1,7 +1,10 @@
 <template>
-  <div class="post">
+  <div class="post" id="post">
     <header>
-      <p class="title"><a href="https://khaleelgibran.com">Khaleel Gibran</a> - <router-link to="/">Blog</router-link></p>
+      <span class="title"
+        ><a href="https://khaleelgibran.com">Khaleel Gibran</a> -
+        <router-link to="/">Blog</router-link></span
+      >
     </header>
 
     <p class="back-home"><router-link to="/">&#8592; back home</router-link></p>
@@ -35,28 +38,25 @@
       v-html="thisPostContent"
     ></p>
 
-    <div id="comments">
-      <!-- <script src="https://utteranc.es/client.js"
-                repo="khalby786/blog"
-                issue-term="url"
-                label="utterances comments"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-            </script> -->
-    </div>
+    <div id="comments"></div>
   </div>
 </template>
 
 <script>
-import VueSkeletonLoader from "skeleton-loader-vue";
+const VueSkeletonLoader = () => import("skeleton-loader-vue");
 
 export default {
   name: "Post",
   components: {
     VueSkeletonLoader,
   },
-  data: function () {
+  metaInfo() {
+    return {
+      title: this.thisPost[0].fields.Title,
+      // title: ""
+    };
+  },
+  data() {
     return {
       notionData: [],
       thisPost: null,
@@ -67,16 +67,17 @@ export default {
   watch: {
     thisPost: function (newContent, OldContent) {
       this.fetchPostContent();
+
+      this.$meta.refresh();
     },
     thisPostContent: function (newContent, oldContent) {
       hljs.highlightAll();
-      console.log("called hljs again!");
     },
   },
-  computed: {
+  methods: {
     fetchPostContent() {
       fetch(
-        "https://potion-api.now.sh/table?id=9676e5ba544740f58d0eb6404220f74c"
+        "https://khaleelgibran-blog-notion.vercel.app/table?id=9676e5ba544740f58d0eb6404220f74c"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -89,27 +90,21 @@ export default {
 
           this.thisPost = thisPost;
 
-          console.log(thisPost[0]);
-
-          console.log(thisPost[0].id);
-
           fetch("https://potion-api.now.sh/html?id=" + thisPost[0].id)
             .then((res) => res.text())
             .then((data) => {
-              console.log(this.thisPostContent);
-
               this.thisPostContent = data;
-
               this.showPost = true;
-              console.log(this.thisPostContent);
 
               hljs.highlightAll();
-              console.log("called hljs!");
             });
         });
     },
   },
   mounted: function () {
+    let localFont = localStorage.getItem("font");
+    document.getElementById("post").setAttribute("data-font", localFont);
+
     let utterances = document.createElement("script");
     utterances.setAttribute("src", "https://utteranc.es/client.js");
     utterances.setAttribute("repo", "khalby786/blog");
@@ -129,8 +124,12 @@ export default {
 </script>
 
 <style scoped>
+:root {
+  --font: "Fira Code", "IBM Plex Mono", monospace;
+}
+
 h1 {
-  color: black;
+  color: var(--foreground);
   font-weight: 10000;
   margin-bottom: 0px;
 }
@@ -144,7 +143,8 @@ header {
   top: 0px;
   border-bottom: 1px solid lightgray;
   vertical-align: middle;
-  background-color: white;
+  background-color: var(--background);
+  color: var(--link-purple);
   z-index: 9;
 }
 
@@ -153,16 +153,18 @@ header > .title {
   margin-bottom: 0px;
   vertical-align: middle;
   float: right;
+  float: left;
   color: var(--link-purple);
 }
 
 .post {
   margin: 5vw;
   line-height: 1.5;
+  white-space: pre-wrap;
   font-size: 1rem;
   unicode-bidi: isolate;
-  color: #374151;
-  font-family: "Roboto Mono", "Fira Code", "IBM Plex Mono", monospace;
+  color: var(--foreground);
+  font-family: "Fira Code", "IBM Plex Mono", monospace;
 }
 
 .post-updated {

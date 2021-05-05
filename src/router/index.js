@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Post from '../views/Post.vue'
 
-Vue.use(VueRouter)
+import meta from 'vue-meta'
+
+Vue.use(VueRouter);
+Vue.use(meta);
+
+const Home = () => import('../views/Home.vue');
+const Post = () => import('../views/Post.vue');
+
 
 const routes = [
   {

@@ -20,7 +20,7 @@
       :width="400"
       :height="20"
       animation="fade"
-      rounded="true"
+      :rounded="true"
     />
     <VueSkeletonLoader
       v-visible="postsLoaded === false"
@@ -36,7 +36,7 @@
       :width="400"
       :height="20"
       animation="fade"
-      rounded="true"
+      :rounded="true"
     />
     <VueSkeletonLoader
       v-visible="postsLoaded === false"
@@ -52,7 +52,7 @@
       :width="400"
       :height="20"
       animation="fade"
-      rounded="true"
+      :rounded="true"
     />
     <div class="post" v-for="post in notionData" :key="post.id">
       <p class="post-title">
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import VueSkeletonLoader from "skeleton-loader-vue";
+const VueSkeletonLoader = () => import("skeleton-loader-vue");
 
 export default {
   name: "Home",
@@ -79,10 +79,17 @@ export default {
       postsLoaded: false,
     };
   },
+  metaInfo: {
+    title: "Khaleel Gibran's Blog",
+    meta: [
+      { }
+    ],
+    titleTemplate: null
+  },
   computed: {
     fetchPosts: function () {
       fetch(
-        "https://potion-api.now.sh/table?id=9676e5ba544740f58d0eb6404220f74c"
+        "https://khaleelgibran-blog-notion.vercel.app/table?id=9676e5ba544740f58d0eb6404220f74c"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -119,7 +126,7 @@ h1 a {
   opacity: 0.8;
   font-size: 16px;
   margin-top: 0px;
-  color: #444;
+  color: var(--gray);
 }
 
 .post {

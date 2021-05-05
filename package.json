@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --report",
+    "build-report": "vue-cli-service build --report"
   },
   "dependencies": {
+    "@benborgers/notion-api": "^1.2.2",
     "core-js": "^3.6.5",
     "skeleton-loader-vue": "^1.0.8",
     "vue": "^2.6.11",
