@@ -1,30 +1,76 @@
 ---
-layout: post_styling.njk
 pagination:
   data: posts
   size: 1
   alias: post
 permalink: post/{{ post.slug }}/
-title:   {{ post.title }}
-excerpt: {{ post.description }}
-author:  "Khaleel Gibran"
-ogtype:  website
 ---
 
-<p class="back-home"><a href="/">&#8592; back home</a></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/public/voxeldonut_transparent_512.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/public/post.css" />
+    
+    <title>{{ post.title }} - Khaleel Gibran's Blog</title>
+    <meta name="title" content="{{ post.title }}">
+    <meta name="description" content="{{ post.description }}">
 
-<h1>{{ post.title }}</h1>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blog.khaleelgibran.com/">
+    <meta property="og:title" content="{{ post.title }} - Khaleel Gibran's Blog">
+    <meta property="og:description" content="{{ post.description }}">
+    <meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-eleventy-social.png?v=1616712747908">
 
-<p class="post-updated">
-  Updated on {{ post.date }}
-</p>
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://blog.khaleelgibran.com/">
+    <meta property="twitter:title" content="Khaleel Gibran's Blog">
+    <meta property="twitter:description" content="The blog of a fourteen-year-old web developer.">
+    <meta property="twitter:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-eleventy-social.png?v=1616712747908">
+  </head>
+  <body>
+    <main>
+      <!-- <h1>{{ post.title }}</h1>
+      <small>Written on {{ post.date }} &bull; {{ post.readTime }} </small>
+      -->
+      <div class="post">
+        <p class="back-home"><a href="/">&#8592; back home</a></p>
 
-<br /><br />
+        <h1>{{ post.title }}</h1>
 
-<div class="post-content">
-  {{ post.html | safe }}
-</div>
+        <p class="post-updated">
+          Updated on {{ post.date }}
+        </p>
 
-<!-- <h1>{{ post.title }}</h1>
-<small>Written on {{ post.date }} &bull; {{ post.readTime }} </small>
- -->
+        <br /><br />
+
+        <div class="post-content">
+          {{ post.html | safe }}
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="copyright">
+        Copyright &#xb7;
+        <b><a href="//khaleelgibran.com">Khaleel Gibran</a></b> &#xb7;
+        2021
+      </p>
+
+      <p class="small-greyed-text">
+        Caught a mistake or have a question? Shoot me an email at
+        <a href="mailto:hey@khaleelgibran.com">hey@khaleelgibran.com</a>!
+      </p>
+
+      <p class="small-greyed-text">
+        <a href="https://512kb.club/">512kb club</a>
+
+        
+
+<!--       &#x00B7;  <a style="cursor:pointer;" @click="toggleTheme()" v-if="this.theme === 'darkMode' && this.showThemeOptions === true">Default Theme</a>
+        <a style="cursor:pointer;" @click="toggleTheme()" v-if="this.theme !== 'darkMode' && this.showThemeOptions === true">Notion Dark</a> -->
+      </p>
+    </footer>
+  </body>
+</html>

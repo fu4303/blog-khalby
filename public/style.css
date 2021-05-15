@@ -5,13 +5,14 @@
 }
 
 :root {
+  --block-background-color: rgb(153, 0, 255);
   --link-purple: rgb(153, 0, 255);
   --background: white;
   --foreground: black;
   --gray: grey;
   --quote: whitesmoke;
   --border-gray: #e5e7eb;
-  --selection: #00FFFF;
+  --selection: #00ffff;
 }
 
 [data-theme="darkMode"] {
@@ -21,7 +22,7 @@
   --gray: grey;
   --quote: #2c3033;
   --border-gray: grey;
-  --selection: #00FFFF;
+  --selection: #00ffff;
 }
 
 ::selection {
@@ -132,4 +133,17 @@ h1 a {
 
 .loader {
   margin-top: 20px !important;
+}
+
+.gird {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.grid h3 {
+  font-family: "Fira Code", "IBM Plex Mono", monospace;
+  color: var(--link-purple);
 }

@@ -64,29 +64,6 @@ h1 {
   margin-bottom: 0px;
 }
 
-.post-header {
-  height: 20px;
-  padding: 10px;
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  border-bottom: 1px solid lightgray;
-  vertical-align: middle;
-  background-color: var(--background);
-  color: var(--link-purple);
-  z-index: 9;
-}
-
-.post-header > .title {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  vertical-align: middle;
-  float: right;
-  float: left;
-  color: var(--link-purple);
-}
-
 .post {
   line-height: 1.5;
   font-size: 1rem;

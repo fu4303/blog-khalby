@@ -15,7 +15,7 @@ var res = request(
   `https://khaleelgibran-blog-notion.vercel.app/table?id=9676e5ba544740f58d0eb6404220f74c`,
   {
     headers: {
-      "user-agent": "aboutdavid.me/1.0"
+      "user-agent": "blog.khaleelgibran.com"
     }
   }
 );
@@ -30,7 +30,7 @@ while (i < res.length) {
   let post = res[i];
   let html = request("GET", `https://khaleelgibran-blog-notion.vercel.app/html?id=${post.id}`, {
     headers: {
-      "user-agent": "aboutdavid.me/1.0"
+      "user-agent": "blog.khaleelgibran.com"
     }
   }).getBody("utf8");
   let date = new Date(post.fields.Date.start_date);
