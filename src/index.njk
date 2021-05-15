@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+
+<header>
+  <h1 class="title">Khaleel Gibran's Blog</h1>
+  <p class="subtitle" v-if="($router.href = '/')">
+    The blog of a fourteen-year-old web developer.
+  </p>
+</header>
+
+{% for post in posts %}
+<div class="post">
+  <p class="post-title">
+    <a href="/post/{{ post.slug }}">
+      {{ post.title }}
+    </a><br />
+  </p>
+  <p class="post-date">Written on {{ post.date }} &bull; {{ post.readTime }}</p>
+</div>
+{% endfor %}
