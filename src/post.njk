@@ -1,0 +1,30 @@
+---
+layout: post_styling.njk
+pagination:
+  data: posts
+  size: 1
+  alias: post
+permalink: post/{{ post.slug }}/
+title:   {{ post.title }}
+excerpt: {{ post.description }}
+author:  "Khaleel Gibran"
+ogtype:  website
+---
+
+<p class="back-home"><a href="/">&#8592; back home</a></p>
+
+<h1>{{ post.title }}</h1>
+
+<p class="post-updated">
+  Updated on {{ post.date }}
+</p>
+
+<br /><br />
+
+<div class="post-content">
+  {{ post.html | safe }}
+</div>
+
+<!-- <h1>{{ post.title }}</h1>
+<small>Written on {{ post.date }} &bull; {{ post.readTime }} </small>
+ -->

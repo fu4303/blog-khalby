@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@300;400;500;600&display=swap");
+
+* {
+  transition: 300ms;
+}
+
+:root {
+  --link-purple: rgb(153, 0, 255);
+  --background: white;
+  --foreground: black;
+  --gray: grey;
+  --quote: whitesmoke;
+  --border-gray: #e5e7eb;
+  --selection: #00FFFF;
+}
+
+[data-theme="darkMode"] {
+  --link-purple: #8a2be2;
+  --background: #2f3437;
+  --foreground: white;
+  --gray: grey;
+  --quote: #2c3033;
+  --border-gray: grey;
+  --selection: #00FFFF;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media only screen and (max-width: 600px) {
+  #app {
+    margin: 10px !important;
+  }
+  .home {
+    margin: 10px;
+  }
+}
+
+a {
+  color: var(--link-purple);
+  text-decoration: none;
+}
+
+iframe {
+  border: 0px solid white;
+  width: 100%;
+  height: 600px;
+}
+
+img {
+  border-radius: 5px;
+}
+
+footer {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+  border-top: 2px solid var(--border-gray);
+  vertical-align: center;
+}
+
+.copyright {
+  margin-bottom: 3px;
+}
+
+.small-greyed-text {
+  color: var(--gray);
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+footer a {
+  color: var(--foreground) !important;
+}
+
+.utterances {
+  margin-top: 40px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.post img {
+  width: 100%;
+}
+
+h1 a {
+  font-family: "Fira Code", "IBM Plex Mono", monospace;
+  color: black;
+}
+
+.title {
+  margin-bottom: 0px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  font-size: 16px;
+  margin-top: 0px;
+  color: var(--gray);
+}
+
+.post {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.post-title {
+  color: var(--link-purple);
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.post-date {
+  margin-top: 0px;
+  font-family: "Fira Code", "IBM Plex Mono", monospace;
+}
+
+.loader {
+  margin-top: 20px !important;
+}
