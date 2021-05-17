@@ -47,7 +47,7 @@ while (i < res.length) {
     readTime: readingTime(html).text,
     slug: slug,
     html: md.render(html),
-    url: `https://khaleelgibran-blog.glitch.me/post/${slug}`
+    url: `https://blog.khaleelgibran.com/post/${slug}`
   });
   i++;
 }

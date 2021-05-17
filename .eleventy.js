@@ -1,10 +1,12 @@
 const { DateTime } = require("luxon");
 const pluginSEO = require("eleventy-plugin-seo");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const htmlmin = require("html-minifier"); 
-const CleanCSS = require("clean-css"); 
+const htmlmin = require("html-minifier");
+const CleanCSS = require("clean-css");
+const searchFilter = require("./src/filters/searchFilter");
+const posts = require("./src/_data/posts");
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats([
     "html",
     "njk",
@@ -15,11 +17,11 @@ module.exports = function(eleventyConfig) {
     "png",
     "svg",
     "woff",
-    "woff2"
+    "woff2",
   ]);
-  
+
   eleventyConfig.addPassthroughCopy("public");
-  
+
   /*
   From: https://github.com/artstorm/eleventy-plugin-seo
   
@@ -33,7 +35,7 @@ module.exports = function(eleventyConfig) {
   }
   eleventyConfig.addPlugin(pluginSEO, seo);
 
-  eleventyConfig.addFilter("htmlDateString", dateObj => {
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
@@ -45,18 +47,18 @@ module.exports = function(eleventyConfig) {
    to all users. I 
   */
   eleventyConfig.setBrowserSyncConfig({ ghostMode: false });
-  
+
   /**
   Eleventy RSS feed
   **/
   eleventyConfig.addPlugin(pluginRss);
-  
+
   /**
   Minifes CSS and HTML
   
   Thanks @aboutDavid!
   **/
-   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (outputPath.endsWith(".html")) {
       return htmlmin.minify(content, {
         useShortDoctype: true,
@@ -75,12 +77,21 @@ module.exports = function(eleventyConfig) {
     }
     return content;
   });
-  
+
+  /**
+   * Stuff related to searching using Elasticlunr.js
+   * https://www.belter.io/eleventy-search/
+   */
+  eleventyConfig.addFilter("search", searchFilter);
+  eleventyConfig.addCollection("posts", collection => {
+    return posts;
+  });
+
   return {
     dir: {
       input: "src",
       includes: "_includes",
-      output: "build"
-    }
+      output: "build",
+    },
   };
 };

@@ -9,13 +9,52 @@ layout: base.njk
   </p>
 </header>
 
-{% for post in posts %}
-<div class="post">
-  <p class="post-title">
-    <a href="/post/{{ post.slug }}">
-      {{ post.title }}
-    </a><br />
-  </p>
-  <p class="post-date">Written on {{ post.date }} &bull; {{ post.readTime }}</p>
+<div id="home-column">
+  <div id="posts">
+    {% for post in posts %}
+    <div class="post">
+      <p class="post-title">
+        <a href="/post/{{ post.slug }}">
+          {{ post.title }}
+        </a><br />
+      </p>
+      <p class="post-date">Written on {{ post.date }} &bull; {{ post.readTime }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="sidebar">
+    <div class="block fixed">
+      <h3>who am i?</h3>
+      <p>
+        I'm a random kid who posts random stuff, mainly stuff I learn while being a web developer and anything I generally learn around me. If you want to know more about me, go visit my <a href="https://khaleelgibran.com">main page</a>!
+      </p>
+    </div>
+    <div class="block fixed">
+      <h3>buy me a coffee</h3>
+      <p>
+        <a href="https://buymeacoffee.com/khalby786">Buy me a coffee</a> and support my works!
+      </p>
+    </div>
+    <footer>
+      <p class="copyright">
+        <b>
+          <a href="//khaleelgibran.com">Khaleel Gibran</a>
+        </b>
+        &#xb7;
+                2021
+      </p>
+      <p class="small-greyed-text">
+        Caught a mistake or have a question? Shoot me an email at
+        <a href="mailto:hey@khaleelgibran.com">hey@khaleelgibran.com</a>!
+      </p>
+      <p class="small-greyed-text">
+        <a href="https://512kb.club/">512kb club</a>
+        <!-- &#x00B7; <a style="cursor:pointer;" @click="toggleTheme()" v-if="this.theme === 'darkMode' &&
+        this.showThemeOptions === true">Default Theme</a>
+                <a style="cursor:pointer;" @click="toggleTheme()" v-if="this.theme !== 'darkMode' && this.showThemeOptions === true">Notion Dark</a>
+        -->
+      </p>
+    </footer>
+  </div>
 </div>
-{% endfor %}
