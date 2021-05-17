@@ -41,11 +41,12 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  #app {
-    margin: 10px !important;
+  body {
+    margin: 1.5em;
   }
-  .home {
-    margin: 10px;
+
+  .post {
+    font-size: 14px;
   }
 }
 
@@ -70,6 +71,9 @@ h1 {
   unicode-bidi: isolate;
   color: var(--foreground);
   font-family: "Fira Code", "IBM Plex Mono", monospace;
+  margin-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
 }
 
 .post-updated {
@@ -87,11 +91,12 @@ blockquote {
   margin-bottom: 20px;
   padding: 20px;
   background-color: var(--quote);
-  border-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   margin-left: 0px;
   width: 100%;
   word-wrap: break-word;
-  border-left: 3px solid var(--link-purple);
+  border-left: 2px solid var(--link-purple);
   border-top: 1px solid lightgray;
   border-right: 1px solid lightgray;
   border-bottom: 1px solid lightgray;

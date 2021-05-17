@@ -22,13 +22,13 @@ permalink: post/{{ post.slug }}/
     <meta property="og:url" content="https://blog.khaleelgibran.com/">
     <meta property="og:title" content="{{ post.title }} - Khaleel Gibran's Blog">
     <meta property="og:description" content="{{ post.description }}">
-    <meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-eleventy-social.png?v=1616712747908">
+    <meta property="og:image" content="">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://blog.khaleelgibran.com/">
     <meta property="twitter:title" content="Khaleel Gibran's Blog">
     <meta property="twitter:description" content="The blog of a fourteen-year-old web developer.">
-    <meta property="twitter:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-eleventy-social.png?v=1616712747908">
+    <meta property="twitter:image" content="">
   </head>
   <body>
     <main>
@@ -50,10 +50,17 @@ permalink: post/{{ post.slug }}/
           {{ post.html | safe }}
         </div>
       </div>
+
+      <script src="https://utteranc.es/client.js"
+        repo="khalby786/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
     </main>
     <footer>
       <p class="copyright">
-        Copyright &#xb7;
         <b><a href="//khaleelgibran.com">Khaleel Gibran</a></b> &#xb7;
         2021
       </p>
