@@ -42,7 +42,7 @@ while (i < res.length) {
   posts.push({
     title: post.fields.Title,
     dateISO: date.toISOString(),
-    date: date.toISOString(),
+    date: moment(date.toISOString()).format("MMMM Do[,] YYYY"),
     dateObject: date,
     description: post.fields.Description || "",
     readTime: readingTime(html).text,
